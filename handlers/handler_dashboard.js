@@ -1,7 +1,10 @@
+const model_machine = require('../models/model_machine');
 
-exports.getDashboard = (req, res) => {
-
+exports.getDashboard  = async (req, res) => {
+    let machine = await model_machine.getMachine();
+    console.log(machine);
     res.render('main_page',{
-        page:"page_dashboard"
+        page:"page_dashboard",
+        machine:machine
     });
 };
